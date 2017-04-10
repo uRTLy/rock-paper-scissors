@@ -5,7 +5,7 @@ export default class ScoreBar extends Component {
   render() {
     const { computerScore, playerScore, winner } = this.props
     return (
-      <View style={this.scorebarContainer}>
+      <View style={[styles.scorebarContainer, (winner) ? { flexDirection: 'column' } : {}]}>
         {winner &&
           <Text style={styles.winner}> The winner is {winner.toUpperCase()}, with score...</Text>}
         <Text style={styles.score}> Player: {playerScore} </Text>
@@ -18,7 +18,7 @@ export default class ScoreBar extends Component {
 const styles = StyleSheet.create({
   scorebarContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'center'
   },
   score: {
     width: 100,
